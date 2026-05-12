@@ -3,7 +3,7 @@
 A tileset for Mmapper for each season of the year.
 
 
-![Shimrod's Seasons Tileset for Mmapper](MUME-Shimrod tileset for mMapper/Shimrods_tileset_cover.jpg)
+![Shimrod's Seasons Tileset for Mmapper](MUME-Shimrod%20tileset%20for%20mMapper/Shimrods_tileset_cover.jpg)
 
 Right now it's not automated and each season needs to be switched manually (overwrite pixmaps folder with desired season).
 
