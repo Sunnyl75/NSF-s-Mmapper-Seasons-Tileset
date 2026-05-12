@@ -2,6 +2,9 @@
 
 A tileset for Mmapper for each season of the year.
 
+
+![Shimrod's easons Tileset for Mmapper](MUME-Shimrod tileset for mMapper/Shimrods_tileset_cover.jpg)
+
 Right now it's not automated and each season needs to be switched manually (overwrite pixmaps folder with desired season).
 
 I personally am building my own map in more vertical way than the default Arda map within mMapper. So I use a lot of icons a bit differently (for example there are not many Elite mob icons in default map, even though lots of mobs past the Bree could be called Elite), but this is probably to each own taste.
