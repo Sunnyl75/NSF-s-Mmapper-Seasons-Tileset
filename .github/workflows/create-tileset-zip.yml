@@ -1,0 +1,49 @@
+name: Create Tileset Zip
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_name:
+        description: 'Release name (optional)'
+        required: false
+        default: 'MUME-Shimrod Tileset'
+
+jobs:
+  create-zip:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Create zip file
+        run: |
+          cd "MUME-Shimrod tileset for mMapper"
+          zip -r ../mume-shimrod-tileset.zip .
+          cd ..
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mume-shimrod-tileset
+          path: mume-shimrod-tileset.zip
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: mume-shimrod-tileset.zip
+          tag_name: tileset-${{ github.run_number }}
+          name: ${{ github.event.inputs.release_name || 'MUME-Shimrod Tileset Release' }} #${{ github.run_number }}
+          body: |
+            Automatically generated tileset zip from the MUME-Shimrod tileset for mMapper folder.
+            
+            **Contents:**
+            - All seasonal tilesets (Spring, Summer, Autumn, Winter)
+            - Cover image
+            - README documentation
+            
+            Created on: ${{ github.event.head_commit.timestamp }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
